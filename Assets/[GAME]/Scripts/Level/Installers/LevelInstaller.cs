@@ -11,6 +11,7 @@ public class LevelInstaller : MonoInstaller
         BindCamerasHolder();
         BindLevel();
         BindAudio();
+        BindPlayerInput();
     }
 
     private void BindCamerasHolder()
@@ -32,6 +33,14 @@ public class LevelInstaller : MonoInstaller
     private void BindAudio()
     {
         Container.Bind<AudioController>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindPlayerInput()
+    {
+        Container.Bind<PlayerInput>()
             .FromNew()
             .AsSingle()
             .NonLazy();
