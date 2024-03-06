@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80573f4bc42d6d041b3970a8566b7da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _limitOffsetStickImage: 250
+  _limitOffsetStickImage: 60
   _limitDirection: 2
   _speedStickImage: 50
   _sensitivity: 0.02
