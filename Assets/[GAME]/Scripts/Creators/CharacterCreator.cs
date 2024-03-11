@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CharacterCreator : Creator
 {
-    public override T Create<T>(T prefab, Transform parent)
+    public override T Create<T>(T character, Transform parent)
     {
-        var player = Object.Instantiate(prefab, parent);
+        var player = Object.Instantiate(character, parent);
         return player;
     }
 }

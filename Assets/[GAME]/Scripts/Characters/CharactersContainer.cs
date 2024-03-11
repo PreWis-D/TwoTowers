@@ -4,7 +4,8 @@ using Zenject;
 
 public class CharactersContainer : MonoBehaviour
 {
-    private CharacterCreator _playerCreator;
+    private CharacterCreator _сreator;
+    private IInput _input;
 
     private Player _playerPrefab;
     private Enemy _enemyPrefab;
@@ -13,16 +14,18 @@ public class CharactersContainer : MonoBehaviour
     private List<Enemy> _enemies = new List<Enemy>();
 
     [Inject]
-    private void Construct(Player playerPrefab, Enemy enemyPrefab)
+    private void Construct(Player playerPrefab, Enemy enemyPrefab, IInput input)
     {
         _playerPrefab = playerPrefab;
         _enemyPrefab = enemyPrefab;
+        _input = input;
     }
 
     public void Init()
     {
-        _playerCreator = new CharacterCreator();
+        _сreator = new CharacterCreator();
 
-        _player = _playerCreator.Create(_playerPrefab, this.transform);
+        _player = _сreator.Create(_playerPrefab, this.transform);
+        _player.Init(_input);
     }
 }

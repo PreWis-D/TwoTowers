@@ -25,7 +25,7 @@ public class JoystickInput : MonoBehaviour, IInput
 
     public float LimitOffsetStickImage => _limitOffsetStickImage;
     public float Magnitude => _magnitude;
-    public Vector3 Direction => new Vector3(_direction.x, _direction.y, 0f);
+    public Vector3 Direction => new Vector3(_direction.x, 0, _direction.y);
 
 
     public event Action OnTouchDownEvent;

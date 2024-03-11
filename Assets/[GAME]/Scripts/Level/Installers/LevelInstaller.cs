@@ -1,10 +1,10 @@
-using System;
 using Zenject;
 using UnityEngine;
 
 public class LevelInstaller : MonoInstaller
 {
     [SerializeField] private CamerasHolder _camerasHolder;
+    [SerializeField] private JoystickInput _joystickInputPrefab;
 
     public override void InstallBindings()
     {
@@ -44,5 +44,10 @@ public class LevelInstaller : MonoInstaller
             .FromNew()
             .AsSingle()
             .NonLazy();
+
+        Container.Bind<IInput>()
+            .To<JoystickInput>()
+            .FromComponentInNewPrefab(_joystickInputPrefab)
+            .AsSingle();
     }
 }
