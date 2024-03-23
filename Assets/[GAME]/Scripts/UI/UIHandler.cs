@@ -3,12 +3,11 @@ using Zenject;
 
 public class UIHandler : MonoBehaviour
 {
-    [SerializeField] private Transform _inputContainer;
+    private Level _level;
 
     [Inject]
-    private void Construct(IInput input)
+    private void Construct(Level level)
     {
-        var joystick = input as JoystickInput;
-        if (joystick) joystick.transform.SetParent(_inputContainer.transform);
+        _level = level;
     }
 }

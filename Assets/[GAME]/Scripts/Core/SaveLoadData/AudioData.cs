@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AudioData : ISaver
+public class AudioData : ISaveLoadService
 {
     private const string _saveAudioState = "SaveAudioState";
 

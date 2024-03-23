@@ -3,26 +3,28 @@ using Zenject;
 
 public class EntryPoint : MonoBehaviour
 {
+    [SerializeField] private LevelVisualConfig _visualConfig;
+    [SerializeField] private LevelBalanceConfig _balanceConfig;
+
     private Level _level;
-    private CamerasHolder _camerasHolder;
-    private CharactersContainer _charactersContainer;
+    private PlayersContainer _charactersContainer;
     private PlayerInput _playerInput;
 
     [Inject]
-    private void Construct(Level level, CamerasHolder camerasHolder, CharactersContainer charactersContainer, PlayerInput playerInput)
+    private void Construct(Level level, PlayersContainer charactersContainer, PlayerInput playerInput)
     {
         _level = level;
-        _camerasHolder = camerasHolder;
         _charactersContainer = charactersContainer;
         _playerInput = playerInput;
     }
 
     public void Start()
     {
-        _level.Init();
-        _camerasHolder.Init();
-        _charactersContainer.Init();
+        _level.Init(_visualConfig, _balanceConfig);
+        _charactersContainer.Init(_visualConfig, _balanceConfig);
 
         _playerInput.Enable();
+
+        _level.Start();
     }
 }

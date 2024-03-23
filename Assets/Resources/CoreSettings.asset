@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03f98613ad41af45aeaf1d4f0150c6c, type: 3}
   m_Name: CoreSettings
   m_EditorClassIdentifier: 
-  _frameRate: 0
-  _fpsCounterEnabled: 0
+  _frameRate: 1
+  _fpsCounterEnabled: 1
   _fpsCounter: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
   _enableSleep: 0

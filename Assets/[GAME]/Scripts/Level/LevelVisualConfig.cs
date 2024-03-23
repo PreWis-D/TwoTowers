@@ -4,8 +4,8 @@ using UnityEngine;
 public class LevelVisualConfig : ScriptableObject
 {
     [SerializeField] private Transform[] _environments;
-    [SerializeField] private MainTower[] _enemyTowers;
+    [SerializeField] private TowerProperties[] _enemyTowers;
 
     public Transform[] Environments => _environments;
-    public MainTower[] EnemyTowers => _enemyTowers;
+    public TowerProperties[] EnemyTowers => _enemyTowers;
 }

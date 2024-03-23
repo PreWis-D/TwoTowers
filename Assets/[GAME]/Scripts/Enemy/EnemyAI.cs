@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using System.Diagnostics;
 
 public class EnemyAI
 {
@@ -33,7 +32,6 @@ public class EnemyAI
             if (_counterWaves >= _balanceConfig.EnemiesWaves.Length)
             {
                 _isActivate = false;
-                UnityEngine.Debug.Log("finish");
                 return;
             }
 

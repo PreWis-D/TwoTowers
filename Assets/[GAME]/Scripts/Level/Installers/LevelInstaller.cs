@@ -1,23 +1,19 @@
 using Zenject;
-using UnityEngine;
 
 public class LevelInstaller : MonoInstaller
 {
-    [SerializeField] private CamerasHolder _camerasHolder;
-    [SerializeField] private JoystickInput _joystickInputPrefab;
-
     public override void InstallBindings()
     {
-        BindCamerasHolder();
+        BindLevelData();
         BindLevel();
         BindAudio();
         BindPlayerInput();
     }
 
-    private void BindCamerasHolder()
+    private void BindLevelData()
     {
-        Container.Bind<CamerasHolder>()
-            .FromInstance(_camerasHolder)
+        Container.Bind<LevelData>()
+            .FromNew()
             .AsSingle()
             .NonLazy();
     }
@@ -44,10 +40,5 @@ public class LevelInstaller : MonoInstaller
             .FromNew()
             .AsSingle()
             .NonLazy();
-
-        Container.Bind<IInput>()
-            .To<JoystickInput>()
-            .FromComponentInNewPrefab(_joystickInputPrefab)
-            .AsSingle();
     }
 }
