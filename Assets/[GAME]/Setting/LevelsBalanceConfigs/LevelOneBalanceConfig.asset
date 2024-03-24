@@ -16,4 +16,14 @@ MonoBehaviour:
   - _propirties:
     - _unitPrefab: {fileID: 3912745332288847646, guid: c68996d835de3cf49b6806561ba260d8, type: 3}
       _count: 1
-    _delayStart: 3
+    _delayStart: 10
+  - _propirties:
+    - _unitPrefab: {fileID: 4671708835447414265, guid: 4e6ba079ad51bf14bb3d7e26dc6f1ac2, type: 3}
+      _count: 1
+    _delayStart: 5
+  - _propirties:
+    - _unitPrefab: {fileID: 448960287776750664, guid: 780e6eb283e551f479f8594287938085, type: 3}
+      _count: 1
+    - _unitPrefab: {fileID: 4671708835447414265, guid: 4e6ba079ad51bf14bb3d7e26dc6f1ac2, type: 3}
+      _count: 2
+    _delayStart: 5
