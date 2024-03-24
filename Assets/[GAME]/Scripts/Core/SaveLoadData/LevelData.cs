@@ -6,7 +6,7 @@ public class LevelData : ISaveLoadService
 
     public int Load()
     {
-        return PlayerPrefs.GetInt(_currentLevelSave, 1);    
+        return PlayerPrefs.GetInt(_currentLevelSave, 1);
     }
 
     public void Save(int stateValue)

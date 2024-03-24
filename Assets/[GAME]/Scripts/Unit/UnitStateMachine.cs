@@ -6,6 +6,7 @@ public class UnitStateMachine : IUnitComponent
     private UnitBehaviourState _currentState;
     private Unit _unit;
     private DamageHandler _enemy;
+    private Transform _lookAt;
     private float _attackDistance;
 
     public bool IsActived { get; private set; }
@@ -19,11 +20,13 @@ public class UnitStateMachine : IUnitComponent
     public void Activate()
     {
         IsActived = true;
+        _unit.DamageHandler.Died += Die;
     }
 
     public void Deactivate()
     {
         IsActived = false;
+        _unit.DamageHandler.Died -= Die;
     }
     #endregion
 
@@ -66,21 +69,28 @@ public class UnitStateMachine : IUnitComponent
     {
         await UniTask.Delay(500);
 
+        if (IsActived == false) return;
+
         if (_unit.EnemyDetecter.EnemyUnit)
-        {
-            _unit.SetAttackTarget(_unit.EnemyDetecter.EnemyUnit.transform);
-            _attackDistance = _unit.Properties.EnemyUnitAttackDistance;
-            _enemy = _unit.EnemyDetecter.EnemyUnit.DamageHandler;
-        }
-        else
-        {
-            _unit.SetAttackTarget(_unit.TowerEnemy.transform);
-            _attackDistance = _unit.Properties.TowerAttackDistance;
-            _enemy = _unit.TowerEnemy.DamageHandler;
-        }
+            SetAttackTarget(
+                _unit.EnemyDetecter.EnemyUnit.transform
+                , _unit.Properties.EnemyUnitAttackDistance
+                , _unit.EnemyDetecter.EnemyUnit.DamageHandler);
+        else if (_unit.TowerEnemy)
+            SetAttackTarget(_unit.TowerEnemy.transform
+                , _unit.Properties.TowerAttackDistance
+                , _unit.TowerEnemy.DamageHandler);
 
         _currentState = UnitBehaviourState.Move;
         _unit.ChangeState(_currentState);
+    }
+
+    private void SetAttackTarget(Transform target, float attackDistance, DamageHandler damageHandler)
+    {
+        _unit.SetAttackTarget(target);
+        _attackDistance = attackDistance;
+        _enemy = damageHandler;
+        _lookAt = target;
     }
     #endregion
 
@@ -108,6 +118,7 @@ public class UnitStateMachine : IUnitComponent
 
             _currentState = UnitBehaviourState.Attack;
             _unit.ChangeState(_currentState);
+            _unit.transform.LookAt(_lookAt);
         }
     }
     #endregion
@@ -129,14 +140,17 @@ public class UnitStateMachine : IUnitComponent
 
     private void CheckAttackTarget()
     {
+        if (_enemy.CurrentHealth > 0) return;
 
+        _currentState = UnitBehaviourState.Idle;
+        _unit.ChangeState(_currentState);
     }
     #endregion
 
     #region Die
     private void Die()
     {
-        if (_currentState == _unit.State) return;
+        if (_currentState == UnitBehaviourState.Die) return;
 
         _currentState = UnitBehaviourState.Die;
         _unit.ChangeState(_currentState);

@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56887962ced161b4ba916a2580c2f19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiHandlerPrefab: {fileID: 151299598993324718, guid: 1f3f8c0d36fa57b4fb8fdb01a096a35b, type: 3}
 --- !u!1 &146471988
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 725491056}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.525, z: 2}
+  m_LocalPosition: {x: 0, y: -0.5833334, z: 2}
   m_LocalScale: {x: 15, y: 1, z: 24}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visualConfig: {fileID: 11400000, guid: 115159df2eba5be49968bb8fb48884f8, type: 2}
   _balanceConfig: {fileID: 11400000, guid: 1f2e49583c59ce04eb7f83c3e3a42984, type: 2}
+  _levelEraConfig: {fileID: 11400000, guid: 72d25493a210ffe438dfcfc553e99743, type: 2}
 --- !u!1 &1114295814
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +545,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpawnPoint: {fileID: 146471989}
   _enemySpawnPoint: {fileID: 1908746715}
+  _isSpawning: 0
+  _isWork: 0
+  _unitPrefab: {fileID: 3912745332288847646, guid: c68996d835de3cf49b6806561ba260d8, type: 3}
 --- !u!1 &1354988772
 GameObject:
   m_ObjectHideFlags: 0

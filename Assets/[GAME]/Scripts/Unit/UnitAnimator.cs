@@ -47,6 +47,7 @@ public class UnitAnimator : IUnitComponent
 
     public void Die()
     {
+        Debug.Log("die anim");
         _animator.SetTrigger(_hashIsDie);
     }
 }

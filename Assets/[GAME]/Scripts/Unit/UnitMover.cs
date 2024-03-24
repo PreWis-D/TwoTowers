@@ -21,11 +21,13 @@ public class UnitMover : IUnitComponent
     public void Activate()
     {
         IsActived = true;
+        _agent.enabled = IsActived;
     }
 
     public void Deactivate()
     {
         IsActived = false;
+        _agent.enabled = IsActived;
     }
 
     public void StopMove()

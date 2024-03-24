@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    [SerializeField] private bool _isDie;
     [SerializeField] private UnitProperties _properties;
     [SerializeField] private UnitMover _mover;
     [SerializeField] private UnitAnimator _animator;
 
     private UnitStateMachine _stateMachine;
     private List<IUnitComponent> _components = new List<IUnitComponent>();
+    private Collider _collider;
 
     public UnitProperties Properties => _properties;
+    public bool IsDie => _isDie;
 
-    public DamageHandler DamageHandler {  get; private set; }
-    public UnitEnemyDetecter EnemyDetecter {  get; private set; }
+    public DamageHandler DamageHandler { get; private set; }
+    public UnitEnemyDetecter EnemyDetecter { get; private set; }
     public MainTower TowerEnemy { get; private set; }
     public Transform Target { get; private set; }
     public PlayerType PlayerType { get; private set; }
@@ -22,6 +25,8 @@ public class Unit : MonoBehaviour
 
     public void Init(PlayerType playerType, MainTower towerEnemy)
     {
+        _collider = GetComponent<Collider>();
+
         PlayerType = playerType;
         TowerEnemy = towerEnemy;
 
@@ -58,6 +63,8 @@ public class Unit : MonoBehaviour
     {
         foreach (var component in _components)
             component.Activate();
+
+        _collider.enabled = true;
     }
 
     public void Deactivate()
@@ -70,6 +77,12 @@ public class Unit : MonoBehaviour
     {
         EnemyDetecter?.Update();
         _stateMachine?.Update();
+
+        if (_isDie)
+        {
+            DamageHandler.TakeDamage(1000);
+            _isDie = false;
+        }
     }
 
     public void ChangeState(UnitBehaviourState state)
@@ -91,8 +104,9 @@ public class Unit : MonoBehaviour
                 _animator.Attack();
                 break;
             case UnitBehaviourState.Die:
-                _mover.StopMove();
+                Deactivate();
                 _animator.Die();
+                _collider.enabled = false;
                 Unsubscribe();
                 break;
         }

@@ -214,12 +214,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._icon
+      value: 
+      objectReference: {fileID: 21300000, guid: cdf914c1c5e3f29438efb5fcf776c64a, type: 3}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._price
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
       propertyPath: _animator._animator
       value: 
       objectReference: {fileID: 2132435158879532127}
     - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
       propertyPath: _properties._towerAttackDistance
-      value: 2
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._enemyUnitAttackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -18,7 +18,7 @@ public class DamageHandler : IDamageble
     {
         CurrentHealth -= damage;
 
-        if (CurrentHealth < 1)
+        if (CurrentHealth > 0)
             DamageTaked?.Invoke();
         else
             Died?.Invoke();

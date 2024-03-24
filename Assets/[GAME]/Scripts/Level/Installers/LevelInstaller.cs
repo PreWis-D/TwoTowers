@@ -1,13 +1,17 @@
 using Zenject;
+using UnityEngine;
 
 public class LevelInstaller : MonoInstaller
 {
+    [SerializeField] private UIHandler _uiHandlerPrefab;
+
     public override void InstallBindings()
     {
         BindLevelData();
         BindLevel();
         BindAudio();
         BindPlayerInput();
+        BindUIHandler();
     }
 
     private void BindLevelData()
@@ -40,5 +44,20 @@ public class LevelInstaller : MonoInstaller
             .FromNew()
             .AsSingle()
             .NonLazy();
+    }
+
+    private void BindUIHandler()
+    {
+        var uiHadler = Container
+            .InstantiatePrefabForComponent<UIHandler>(
+            _uiHandlerPrefab
+            , Vector3.zero
+            , Quaternion.identity
+            , null);
+
+        Container
+            .Bind<UIHandler>()
+            .FromInstance(uiHadler)
+            .AsSingle();
     }
 }

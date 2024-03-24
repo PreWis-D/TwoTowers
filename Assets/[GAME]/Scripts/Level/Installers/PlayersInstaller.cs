@@ -9,11 +9,29 @@ public class PlayersInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindPlayer();
+        BindPlayerData();
+        BindMainTower();
         BindCharactersContainer();
         BindEnemyAI();
     }
 
     private void BindPlayer()
+    {
+        Container.Bind<Player>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindPlayerData()
+    {
+        Container.Bind<PlayerData>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+    }
+
+    private void BindMainTower()
     {
         Container.Bind<MainTower>()
             .FromInstance(_towerPrefab)

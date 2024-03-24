@@ -7,6 +7,7 @@ public class Level
     private AudioController _controller;
     private LevelData _levelData;
     private PlayersContainer _playersContainer;
+    private UIHandler _uiHandler;
 
     public int CurrentLevel { get; private set; }
 
@@ -18,10 +19,11 @@ public class Level
         _playersContainer = playersContainer;
     }
 
-    public void Init(LevelVisualConfig levelConfig, LevelBalanceConfig levelBalanceConfig)
+    public void Init(LevelVisualConfig levelConfig, LevelBalanceConfig levelBalanceConfig, UIHandler uIHandler)
     {
         _levelConfig = levelConfig;
         _levelBalance = levelBalanceConfig;
+        _uiHandler = uIHandler;
 
         CurrentLevel = _levelData.Load();
 
@@ -29,6 +31,11 @@ public class Level
     }
 
     public void Start()
+    {
+        _uiHandler.StartLevel();
+    }
+
+    public void StartBattle()
     {
         _playersContainer.Activate();
     }

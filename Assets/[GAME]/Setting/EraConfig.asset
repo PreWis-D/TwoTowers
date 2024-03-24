@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbee290550b6f094f870657809e47725, type: 3}
+  m_Name: EraConfig
+  m_EditorClassIdentifier: 
+  _unitsPacks:
+  - _units:
+    - {fileID: 3912745332288847646, guid: c68996d835de3cf49b6806561ba260d8, type: 3}
+    - {fileID: 4671708835447414265, guid: 4e6ba079ad51bf14bb3d7e26dc6f1ac2, type: 3}
+    - {fileID: 448960287776750664, guid: 780e6eb283e551f479f8594287938085, type: 3}
+    _mainTower: {fileID: 2234400405604149420, guid: d05f8bf8f46ecaf4c938ca87cac664db, type: 3}
