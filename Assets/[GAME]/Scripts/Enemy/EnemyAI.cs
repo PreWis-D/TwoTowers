@@ -2,15 +2,17 @@ using Cysharp.Threading.Tasks;
 
 public class EnemyAI
 {
-    private MainTower _mainTower;
+    private MainTower _mainTowerRed;
+    private MainTower _mainTowerBlue;
     private LevelBalanceConfig _balanceConfig;
 
     private bool _isActivate;
     private int _counterWaves = 0;
 
-    public void Init(MainTower mainTower, LevelBalanceConfig balanceConfig)
+    public void Init(MainTower mainTowerRed, MainTower mainTowerBlue,  LevelBalanceConfig balanceConfig)
     {
-        _mainTower = mainTower;
+        _mainTowerRed = mainTowerRed;
+        _mainTowerBlue = mainTowerBlue;
         _balanceConfig = balanceConfig;
     }
 
@@ -42,8 +44,10 @@ public class EnemyAI
                 for (int j = 0; j < _balanceConfig.EnemiesWaves[_counterWaves].Propirties[i].Count; j++)
                 {
                     var unit = UnityEngine.Object.Instantiate(_balanceConfig.EnemiesWaves[_counterWaves].Propirties[i].UnitPrefab);
-                    unit.transform.position = _mainTower.SpawnPoints[j].position;
-                    unit.transform.rotation = _mainTower.transform.rotation;
+                    unit.transform.position = _mainTowerRed.SpawnPoints[j].position;
+                    unit.transform.rotation = _mainTowerRed.transform.rotation;
+                    unit.Init(_mainTowerRed.PlayerType, _mainTowerBlue);
+                    unit.Activate();
                 }
             }
             _counterWaves++;

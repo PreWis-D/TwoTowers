@@ -38,7 +38,7 @@ public class PlayersContainer : MonoBehaviour
         _enemyTower.transform.position = _enemySpawnPoint.position;
         _enemyTower.transform.rotation = Quaternion.Euler(_enemyTowerRotation);
 
-        _enemyAI.Init(_enemyTower, levelBalanceConfig);
+        _enemyAI.Init(_enemyTower, _playerTower, levelBalanceConfig);
     }
 
     public void Activate()

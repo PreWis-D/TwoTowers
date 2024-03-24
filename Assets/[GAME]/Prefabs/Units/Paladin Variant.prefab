@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: _animator._animator
       value: 
       objectReference: {fileID: 2132435158879532127}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._towerAttackDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7077605841778712823, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}

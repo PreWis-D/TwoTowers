@@ -134,6 +134,18 @@ PrefabInstance:
       propertyPath: _animator._animator
       value: 
       objectReference: {fileID: 7550144812628840131}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._towerAttackDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741326997400398613, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
+      propertyPath: _properties._enemyUnitAttackDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7077605841778712823, guid: 35d13e3b6ae19d940abbc595d1449abf, type: 3}
